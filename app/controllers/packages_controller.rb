@@ -4,7 +4,7 @@ class PackagesController < ApplicationController
   respond_to :html
 
   def index
-    @packages = Package.all
+    @packages = Package.page(params[:page] || 1)
     respond_with(@packages)
   end
 

@@ -1,6 +1,7 @@
 <h1>Listing packages</h1>
+<%= link_to 'New Package', new_package_path, class: 'btn btn-lg btn-primary'%>
 
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Title</th>
@@ -23,7 +24,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= will_paginate @packages %>
 <br>
 
-<%= link_to 'New Package', new_package_path %>
+
