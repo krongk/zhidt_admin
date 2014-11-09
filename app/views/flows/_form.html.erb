@@ -5,6 +5,7 @@
     <%= f.association :package, selected: @package.try(:id) %>
     <%= f.input :title %>
     <%= f.input :description %>
+    <%= f.input :temp_content, :input_html => {:rows => 22} %>
     <%= f.input :tutorial, :input_html => {:rows => 22} %>
     <%= f.input :icon %>
   </div>
