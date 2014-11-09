@@ -1,10 +1,11 @@
 class SitesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_site, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
   def index
-    @sites = Site.all
+    @sites = Site.page(params[:page] || 1)
     respond_with(@sites)
   end
 

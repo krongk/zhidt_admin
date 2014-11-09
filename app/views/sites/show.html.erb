@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @site.user %>
+  <%= @site.user.email %>
 </p>
 
 <p>
-  <strong>Title:</strong>
   <%= @site.title %>
 </p>
 
-<%= link_to 'Edit', edit_site_path(@site) %> |
-<%= link_to 'Back', sites_path %>
+<%= link_to '编辑', edit_site_path(@site) %> |
+<%= link_to '返回', sites_path %>

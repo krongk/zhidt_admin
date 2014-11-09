@@ -1,4 +1,5 @@
 class SitePackageFlowsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_site_package_flow, only: [:show, :edit, :update, :destroy]
 
   respond_to :html

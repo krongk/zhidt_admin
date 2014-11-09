@@ -3,19 +3,21 @@
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
+        <span class="sr-only">菜单</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to '控制面板', root_path, class: 'navbar-brand' %>
+      <%= link_to '直达通', root_path, class: 'navbar-brand' %>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
         <li><%= link_to '用户', users_path %></li>
         <li><%= link_to '包', packages_path %></li>
         <li><%= link_to '流程', flows_path %></li>
         <li><%= link_to '站点', sites_path %></li>
+        <% end %>
         <%= render 'layouts/navigation_links' %>
       </ul>
     </div>

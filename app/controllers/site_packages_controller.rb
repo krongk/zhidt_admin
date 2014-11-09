@@ -1,4 +1,5 @@
 class SitePackagesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_site_package, only: [:show, :edit, :update, :destroy]
 
   respond_to :html

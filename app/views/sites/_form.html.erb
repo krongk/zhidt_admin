@@ -2,11 +2,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :user %>
+    <%= f.association :user, selected: @site.user_id %>
     <%= f.input :title %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: 'btn btn-primary btn-lg' %>
   </div>
 <% end %>

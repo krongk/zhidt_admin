@@ -2,14 +2,14 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :package %>
+    <%= f.association :package, selected: @package.try(:id) %>
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.input :tutorial %>
+    <%= f.input :tutorial, :input_html => {:rows => 22} %>
     <%= f.input :icon %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: 'btn btn-primary btn-lg' %>
   </div>
 <% end %>

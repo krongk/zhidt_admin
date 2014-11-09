@@ -1,0 +1,12 @@
+<ul>
+  <% site_packages.each do |site_package| %>
+    <li>
+        <h3><%= site_package.site.title %></h3>
+        <p><%= site_package.package.title %></p>
+      <span class="text-right">
+        <%= link_to '修改', edit_site_package_path(site_package) %> &nbsp;|&nbsp;
+        <%= link_to '删除', site_package, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </span>
+    </li>
+  <% end %>
+</ul>

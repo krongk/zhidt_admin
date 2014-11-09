@@ -1,0 +1,15 @@
+---
+zh-CN:
+  activerecord:
+    models:
+      site_package: 站点包
+    attributes:
+      site_package:
+        site: 站点
+        package: 包
+        updated_at: 更新时间
+        created_at: 创建时间
+    errors:
+      site_package: 
+  helpers:
+    site_package: 

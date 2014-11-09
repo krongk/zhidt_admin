@@ -1,0 +1,16 @@
+---
+zh-CN:
+  activerecord:
+    models:
+      package: 包
+    attributes:
+      package:
+        title: 标题
+        description: 描述
+        icon: 图标
+        updated_at: 更新时间
+        created_at: 创建时间
+    errors:
+      package: 
+  helpers:
+    package: 

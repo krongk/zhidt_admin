@@ -1,0 +1,12 @@
+<ul>
+<% flows.each do |flow| %>
+  <li>
+      <h3><i class="fa fa-<%= flow.icon %>"></i> <%= flow.title %></h3>
+      <p><%= flow.description %></p>
+    <span class="text-right">
+      <%= link_to '修改', edit_flow_path(package_id: flow.package_id, id: flow.id) %> &nbsp;|&nbsp;
+      <%= link_to '删除', [flow.package, flow], method: :delete, data: { confirm: 'Are you sure?' } %>
+    </span>
+  </li>
+<% end %>
+</ul>
