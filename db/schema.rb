@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109061435) do
+ActiveRecord::Schema.define(version: 20141111021419) do
 
   create_table "flows", force: true do |t|
     t.integer  "package_id"
@@ -45,14 +45,28 @@ ActiveRecord::Schema.define(version: 20141109061435) do
     t.datetime "updated_at"
   end
 
+  create_table "resources", force: true do |t|
+    t.string   "resource_type"
+    t.string   "source_class"
+    t.string   "source_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "asset_updated_at"
+  end
+
   create_table "site_package_flow_comments", force: true do |t|
-    t.integer  "site_package_flow_id"
+    t.integer  "user_id",              null: false
+    t.integer  "site_package_flow_id", null: false
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "site_package_flow_comments", ["site_package_flow_id"], name: "index_site_package_flow_comments_on_site_package_flow_id", using: :btree
+  add_index "site_package_flow_comments", ["user_id"], name: "idx__user", using: :btree
 
   create_table "site_package_flows", force: true do |t|
     t.integer  "site_package_id"
@@ -64,6 +78,7 @@ ActiveRecord::Schema.define(version: 20141109061435) do
   end
 
   add_index "site_package_flows", ["flow_id"], name: "index_site_package_flows_on_flow_id", using: :btree
+  add_index "site_package_flows", ["site_package_id", "flow_id"], name: "unq__site_package_flow", unique: true, using: :btree
   add_index "site_package_flows", ["site_package_id"], name: "index_site_package_flows_on_site_package_id", using: :btree
 
   create_table "site_packages", force: true do |t|
@@ -72,6 +87,7 @@ ActiveRecord::Schema.define(version: 20141109061435) do
   end
 
   add_index "site_packages", ["package_id"], name: "index_site_packages_on_package_id", using: :btree
+  add_index "site_packages", ["site_id", "package_id"], name: "unq__site_package", unique: true, using: :btree
   add_index "site_packages", ["site_id"], name: "index_site_packages_on_site_id", using: :btree
 
   create_table "sites", force: true do |t|
@@ -97,8 +113,10 @@ ActiveRecord::Schema.define(version: 20141109061435) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "mobile_phone"
     t.integer  "role"
     t.integer  "parent_id"
+    t.integer  "current_site_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

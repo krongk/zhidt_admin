@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :resources
+
   resources :sites do 
     resources :site_package_flow_comments
     resources :site_package_flows
-    resources :site_packages
+    
   end
+  resources :site_packages
 
   resources :notices
   resources :flows

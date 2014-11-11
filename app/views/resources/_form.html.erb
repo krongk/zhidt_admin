@@ -1,0 +1,14 @@
+<%= simple_form_for(@resource, html: { :multipart => true }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :resource_type, as: :hidden, input_html: { value: 'image'} %>
+    <%= f.input :source_class, as: :hidden, input_html: { value: params[:source_class]} %>
+    <%= f.input :source_id, as: :hidden, input_html: { value: params[:source_id]} %>
+    <%= f.input :asset, as: :file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

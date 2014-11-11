@@ -25,5 +25,6 @@
   <%= @flow.icon %>
 </p>
 
+<%= link_to "添加照片", new_resource_path(source_class: 'Flow', source_id: @flow.id ), target: '_blank' %> | 
 <%= link_to 'Edit', edit_flow_path(@flow) %> |
 <%= link_to 'Back', flows_path %>

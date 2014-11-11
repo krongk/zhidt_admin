@@ -8,6 +8,18 @@
     <%= f.input :temp_content, :input_html => {:rows => 22} %>
     <%= f.input :tutorial, :input_html => {:rows => 22} %>
     <%= f.input :icon %>
+    <% unless @flow.new_record? %>
+      <%= link_to "添加照片", new_resource_path(source_class: 'Flow', source_id: @flow.id ), target: '_blank', class: 'btn btn-success' %>
+      <div class="row">
+        <% Resource.assets('Flow', @flow.id).each do |asset| %>
+          <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+              <%= qiniu_image_tag @image.file.url, :thumbnail => '200x200>', :quality => 80 %>
+            </a>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
   <div class="form-actions">
