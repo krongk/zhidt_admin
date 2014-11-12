@@ -1,7 +1,8 @@
 class Resource < ActiveRecord::Base
   has_attached_file :asset,
-                    :path => "zhidat/tutorial/:class/:id/:style.:extension",
-                    :styles => {:original => '640x640>'} #override the original file
+                    :path => "zhidat/tutorial/:class/:id/:style.:extension"
+                    #maybe a picture/audio/video/pdf/doc
+                    #:styles => {:original => '640x640>'} #override the original file
                     #:styles => { :small => '150x150#' } #standerd mobile size: 320*480 480*800 640*960
 
   validates_attachment_size :asset, :less_than => 8.megabytes
